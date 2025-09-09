@@ -1,0 +1,46 @@
+~/.bashrc script run before every terminal session
+
+Arch linux use pacman package manager
+pacman -S vim
+S stands for sync
+
+openSUSE use zypper
+zypper in vim
+
+To find all files and dir modified in last 1 minute
+find / -mmin -1
+
+/dev/null is a special file in linux that discards all data written to it.
+often called bit-bucket or black hole
+ls > /dev/null 
+
+discard both input output
+cmd > /dev/null 2>&1
+
+create a empty file (/dev/null always empty when read)
+cat /dev/null > file.txt 
+
+To send only output to file but error display on console
+find / -mmin -1 > output.log
+
+To send both to file 
+find / -mmin -1 > output.log 2>&1
+
+To send output to output.log and error to /dev/null 
+find / -mmin -1 > output.log 2> /dev/null 
+
+provide a continious stream of null bytes \0
+/dev/zero
+
+/dev/random
+
+/dev/urandom
+
+To increase SSH connection timeout
+open file /etc/ssh/sshd_config
+How often the server sends a "keepalive" message to check if the client is still alive
+CLIENTALIVEINTERVAL 300              (means 300 sec = 300sec/60 = 5 minutes)
+CLIENTALIVECOUNTMAX 3                (means after 3 unanswered keepalive ssh disconect)
+
+5min * 3attempts = 15minute idle
+

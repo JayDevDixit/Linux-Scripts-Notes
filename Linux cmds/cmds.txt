@@ -1,0 +1,39 @@
+To see file created, modift date, size
+stat <filename>
+
+To remove useless dependencies (packages that are not currently used by any package)
+dnf autoremove -y
+
+To add repository go to 
+cd /etc/yum.repos.d/
+dnf install epel-release
+
+Redirect standard output,error,both
+echo "Hello" > /dev/null
+echo "Hello" 2> /dev/null
+echo "Hello" > /dev/null 2>&1
+
+
+Print on terminal and copy to file 
+cat file.txt | tee copy.txt 
+
+To remove empty dir
+rmdir <dir_name>
+
+To remove non-empty dir 
+rm -rf <dir_name>
+
+To print all files
+ls | xargs cat
+
+To copy folder data recursively of one vm in another vm 
+rsync root@<ip_from_where_data_need_to_copy>:<path> <path_to_receive_data>
+rsync root@10.128.144.225:/root/rsync .   // This create rsync folder at destination means at .
+rsync root@10.128.144.225:/root/rsync/ . // This will not create it 
+
+To open all files present in current directory when directory also contain sub-directories
+find . -maxdepth 1 -type f | xargs code
+
+To see the that someone is pinging my machine or not 
+tcpdump -i any icmp 
+tcpdump -i any icmp[icmptype] = icmp-echo
