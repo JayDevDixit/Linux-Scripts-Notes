@@ -1,0 +1,19 @@
+Reverse proxy means a server sit between client and server 
+
+client ---request---> proxy server ----forward_request----> original server 
+
+free vesion of ngrok provides limited request
+
+ngrok setup on linux
+wget https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-stable-linux-amd64.zip
+unzip
+mv ngrok /usr/local/bin/
+ngrok version
+
+Now if we have added auth token then running this cmd will generate a public url which redirect request to port 5173
+ngrok http 5173
+
+How to authenticate?
+go to ngrok website then sign in and copy auth token 
+run cmd
+ngrok config add-authtoken <token>

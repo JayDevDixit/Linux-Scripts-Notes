@@ -1,4 +1,6 @@
 ~/.bashrc script run before every terminal session
+bashrc file store environment variables
+export VARIABLE=value
 
 Arch linux use pacman package manager
 pacman -S vim

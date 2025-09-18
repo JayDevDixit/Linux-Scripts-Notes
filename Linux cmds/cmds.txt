@@ -37,3 +37,106 @@ find . -maxdepth 1 -type f | xargs code
 To see the that someone is pinging my machine or not 
 tcpdump -i any icmp 
 tcpdump -i any icmp[icmptype] = icmp-echo
+
+To search for a particular cmd from history
+history | tail -n 100 | grep dnf 
+-n is to show line number
+
+To see your public ip 
+curl ifconfig.me 
+
+To see, set, run cmd with custom environment
+To see environment variables
+env 
+-i = ignore environment (To run cmd with empty environment)
+To start a new shell with empty env variables
+env -i /bin/bash
+To set env variable only for current shell
+export variable=value
+How to set permanently ?
+~/.bashrc file run every time we open a new shell.
+export variable=value 
+if you don't write export then variable only availiable for shell and not for child process that it invoke.
+
+bc cmd used to perform calculations
+x = `echo '3+5' | bc`          $x is 8
+y = `echo "$x + 3" | bc`     Note: single quote not work here
+z=`echo "var=$x*2;++var" | bc`  $z is 11
+echo "10>5" | bc      1
+echo "10==11" | bc     0
+echo "! 0" | bc       1
+echo "! 10" | bc     0
+Anything other than 0 is 0
+
+Reading multiple files 
+Best way without worry about last line if does not have endline char
+while read r; do 
+echo $r;
+done | cat file1 file2
+if you do like cat file1 | while r; do then it need end line char to print last line.
+
+This method need line end char to print last line
+while read r; do 
+echo $r;
+done < <(cat file1 file2 file3);
+
+< vs | vs <()
+<   feed the file line by line.
+|   connect the stdout of one cmd with stdin of another cmd 
+
+locate (apt install plocate) a faster alternative of find cmd
+locate file.txt 
+locate use database to find files so sometimes DB is not updated so result might contain deleted files and not contain new files.
+eliminate this problem using -e option
+-e = show existing files only
+-c = count result
+-n 10 = limit no of search result to 10
+-i = ignore case
+-r = search file for exact name
+locate update its DB daily at same time automatic.
+To manually update it run
+updatedb
+
+-0 : this option used in many cmds to replace \n with null in the output 
+
+conditional expressions
+Numbers        -eq -lt -gt -ne           [ ]
+Strings        == != < >                 [[ ]] 
+
+File operators
+PATH is relative or absolute
+[ -e $PATH ] true if path exist (file or dir)
+-d for dir check
+-f for file check 
+-w, -x, -r check write, execute, read permission (file or dir)
+-s check filesize > 0
+
+String operators 
+string empty check 
+[ $a ] if a is empty return false
+
+Logical operators 
+&& || !
+work only inside [[ ... ]] 
+not in [ ... ]
+
+expr cmd : expression 
+`expr 3 + 4`                           //7
+x=`expr $x \* $y`          
+operators: +, -, \*, \<, \>, \! 
+comparison give 1 or 0
+
+
+Array
+integer index
+declare -a myArray        
+
+string index hashmap (key-value pair)
+declare -A myArray 
+
+
+
+
+
+
+
