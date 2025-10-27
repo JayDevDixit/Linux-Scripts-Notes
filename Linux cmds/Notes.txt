@@ -46,3 +46,14 @@ CLIENTALIVECOUNTMAX 3                (means after 3 unanswered keepalive ssh dis
 
 5min * 3attempts = 15minute idle
 
+To install 32 bit architecture of a package
+yum install glibc.i686
+
+To install 64 bit architecture of a package 
+yum install glibc.x86_64
+
+If you don't specify then yum/dnf smart enough to install according to your machine compatability.
+If the repo does not have specified arch then cmd will fail.
+
+In linux everything is a file including network sockets and ports
+

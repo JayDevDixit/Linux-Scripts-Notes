@@ -67,5 +67,14 @@ sysctl -p
 
 service firewalld stop
 
+pro=$(sudo lsof -t -i :8004)
+if [[ -n "$pro" ]]; then
+echo "A process running on port 8004 needed to kill to start ST installation"
+ps -fp "$pro"
+sudo kill -9 "$pro"
+echo
+echo "Process running at port 8004 killed successfully"
+fi
+
 echo 
 echo 'Now run ./setup.sh -m console'

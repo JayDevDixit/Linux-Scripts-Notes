@@ -1,4 +1,4 @@
-To see file created, modift date, size
+To see file created, modify date, size
 stat <filename>
 
 To remove useless dependencies (packages that are not currently used by any package)
@@ -134,7 +134,17 @@ declare -a myArray
 string index hashmap (key-value pair)
 declare -A myArray 
 
+To test a file/dir exist or not
+test -f file.txt && echo "Exist" || echo "Not Exist"
+use -d for dir check
 
+To check a port is busy or free 
+lsof -i :8080
+To get only PID use -t (terse output - only show PID)
+
+In if [[]] -n option is equal to ! -z 
+-n True when string have some content
+-z True when string is empty
 
 
 
