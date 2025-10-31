@@ -57,3 +57,4 @@ If the repo does not have specified arch then cmd will fail.
 
 In linux everything is a file including network sockets and ports
 
+To remove pagination from output use option --no-pager

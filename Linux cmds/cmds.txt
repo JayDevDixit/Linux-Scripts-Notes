@@ -146,6 +146,9 @@ In if [[]] -n option is equal to ! -z
 -n True when string have some content
 -z True when string is empty
 
+To see securetransport services
+systemctl list-units --type=service --no-pager --all | grep securetransport
+
 
 
 
